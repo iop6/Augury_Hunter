@@ -20,6 +20,8 @@ while running == True:
     flipped_ips = []
     detailed_lines = []
 
+    # output_list = []
+
     #Filter networks: &ip_addr=205.18.101.0%2F24%2C+205.18.102.0%2F24%2C+205.18.103.0%2F24%2C+205.18.104.0%2F24%2C+205.18.186.0%2F24%2C+205.18.187.0%2F24%2C+205.18.188.0%2F24%2C+205.18.64.0%2F24%2C+205.18.69.0%2F24%2C+205.18.71.0%2F24%2C+205.18.74.0%2F24%2C+205.18.96.0%2F24%2C+205.18.97.0%2F24%2C+205.18.99.0%2F24
 
     results = requests.request("GET", url+"/results/" + query_id + "?format=json", data=payload, headers=headers)
@@ -57,14 +59,16 @@ while running == True:
         for value in src_dst:
           if value == flipper:
             print(value)
-        ''' trying to nest comparison to result list - ZALUD
+        ''' 
+        # trying to nest comparison to result list - ZALUD
 
         for value in output_list:
-          if value != flipper:
+          if value == flipper:
+            break
+          else:
             for value in src_dst:
               if value == flipper:
                 output_list.append(value)
-        
         print(output_list)
         '''
         '''
