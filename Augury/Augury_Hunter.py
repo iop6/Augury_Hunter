@@ -61,15 +61,17 @@ while running == True:
             print(value)
         ''' 
         # trying to nest comparison to result list - ZALUD
-
-        for value in output_list:
-          if value == flipper:
-            break
-          else:
-            for value in src_dst:
-              if value == flipper:
-                output_list.append(value)
+        def value_test():
+          for value in src_dst:
+            if value == flipper:
+              for value in output_list:
+                if value == flipper:
+                  return
+              else:
+                continue
+            output_list.append(value)
         print(output_list)
+        return
         '''
         '''
     i = 0
@@ -116,6 +118,6 @@ while running == True:
     print('\n------------------------------------------------')
 
   #-------------------------------------------------------------------------------------------------------------------------------------
-  #Get_Bi_Directional()
-  Augury_Hunting()
+  Get_Bi_Directional()
+  #Augury_Hunting()
   running = False
