@@ -19,15 +19,14 @@ while running == True:
     src_dst = []
     flipped_ips = []
     detailed_lines = []
-
-    # output_list = []
-
+    '''
     #Filter networks: &ip_addr=205.18.101.0%2F24%2C+205.18.102.0%2F24%2C+205.18.103.0%2F24%2C+205.18.104.0%2F24%2C+205.18.186.0%2F24%2C+205.18.187.0%2F24%2C+205.18.188.0%2F24%2C+205.18.64.0%2F24%2C+205.18.69.0%2F24%2C+205.18.71.0%2F24%2C+205.18.74.0%2F24%2C+205.18.96.0%2F24%2C+205.18.97.0%2F24%2C+205.18.99.0%2F24
 
     results = requests.request("GET", url+"/results/" + query_id + "?format=json", data=payload, headers=headers)
     BD_results = open("Bi_Directional.json", "w")
     BD_results.write(results.text)
     BD_results.close()
+    '''
 
     with open("Bi_Directional.json", "r") as f:
       for line in f:
@@ -54,12 +53,21 @@ while running == True:
         line_details = timestamp + "   " + src_ip + "   " + src_cc + "   " + proto + "   "  + dst_ip + "   "  + dst_cc + "   " + proto + "   " + dst_port + "   " + src_port + "   " + tcp_flags +                "   " + num_pkts + "   " + num_octets
         detailed_lines.append(line_details)
 
-        # Need to iterate through line(first list) and compair that line # with the same line number in flipper (second list). If that item matches
+    # Need to iterate through line(first list) and compair that line # with the same line number in flipper (second list). If that item matches
         
-        for value in src_dst:
-          if value == flipper:
-            print(value)
-        ''' 
+    i1 = 0
+    i2 = 1
+    for x in src_dst:
+      s1 = False
+      while s1 == False:
+        if src_dst[i1] == flipped_ips[i2]:
+          print (detailed_lines[i1])
+        else:
+          i2 += 1
+        s1 = True
+      i1 += 1
+      #trying to
+  ''' 
         # trying to nest comparison to result list - ZALUD
 
         for value in output_list:
@@ -70,16 +78,15 @@ while running == True:
               if value == flipper:
                 output_list.append(value)
         print(output_list)
-        '''
-        '''
+
     i = 0
     for value1 in src_dst[i]:
       for value2 in flipped_ips[i]:
         if value1 == value2 and value2 == value1:
           print(detailed_lines[i])
       i += 1 
-      '''
-    print('------------------------------------------------')
+  '''
+  print('------------------------------------------------')
   
   def Augury_Hunting():
     print('------------------------------------------------')
