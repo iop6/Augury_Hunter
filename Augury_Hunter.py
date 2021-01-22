@@ -57,6 +57,16 @@ while running == True:
         for value in src_dst:
           if value == flipper:
             print(value)
+        ''' trying to nest comparison to result list - ZALUD
+
+        for value in output_list:
+          if value != flipper:
+            for value in src_dst:
+              if value == flipper:
+                output_list.append(value)
+        
+        print(output_list)
+        '''
         '''
     i = 0
     for value1 in src_dst[i]:
