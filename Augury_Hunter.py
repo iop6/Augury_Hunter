@@ -19,14 +19,14 @@ while running == True:
     src_dst = []
     flipped_ips = []
     detailed_lines = []
-    '''
+    
     #Filter networks: &ip_addr=205.18.101.0%2F24%2C+205.18.102.0%2F24%2C+205.18.103.0%2F24%2C+205.18.104.0%2F24%2C+205.18.186.0%2F24%2C+205.18.187.0%2F24%2C+205.18.188.0%2F24%2C+205.18.64.0%2F24%2C+205.18.69.0%2F24%2C+205.18.71.0%2F24%2C+205.18.74.0%2F24%2C+205.18.96.0%2F24%2C+205.18.97.0%2F24%2C+205.18.99.0%2F24
 
     results = requests.request("GET", url+"/results/" + query_id + "?format=json", data=payload, headers=headers)
     BD_results = open("Bi_Directional.json", "w")
     BD_results.write(results.text)
     BD_results.close()
-    '''
+    
 
     with open("Bi_Directional.json", "r") as f:
       for line in f:
