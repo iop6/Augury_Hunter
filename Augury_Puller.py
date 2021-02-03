@@ -8,7 +8,6 @@ while running == True:
     open("mass_pull.json", "w")
     with open("Query_ID_File", "r") as f:
       for line in f:
-        print("Howdy")
         query_id_list.append(line)
         var = str(line)
         url = "https://augury5.heliumrain.com/api/results/" + var.rstrip('\n') + "?format=json"
