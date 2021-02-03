@@ -1,5 +1,4 @@
 import requests
-#import json
 
 running = True
 while running == True:
