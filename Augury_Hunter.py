@@ -4,14 +4,14 @@ import json
 #Test query 11645485
 url = "https://augury5.heliumrain.com/api"
 payload = ""
-#auth = str(input("What is your auth key? "))
-headers = {"Content-Type": "application/x-www-form-urlencoded", "Authorization": "8397cb23f42e8a8ca73d8b7a5098ce02afbce154"}
+auth = str(input("What is your auth key? "))
+headers = {"Content-Type": "application/x-www-form-urlencoded", "Authorization": auth}
 running = True
 #-------------------------------------------------------------------------------------------------------------------------------------
 while running == True:
 
   def Get_Bi_Directional():
-    #query_id = str(input("What is your query ID? "))
+    query_id = str(input("What is your query ID? "))
     src_dst = []
     flipped_ips = []
     detailed_lines = []
@@ -20,7 +20,7 @@ while running == True:
 
 #-------------------------------------------------------------------------------------------------------------------------------------
 
-    results = requests.request("GET", url+"/results/" + "11645485" + "?format=json", data=payload, headers=headers)
+    results = requests.request("GET", url+"/results/" + query_id + "?format=json", data=payload, headers=headers)
     BD_file = open("Bi_Directional.json", "w")
     BD_file.write(results.text)
     BD_file.close()
