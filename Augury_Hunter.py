@@ -53,21 +53,7 @@ while running == True:
         detailed_lines.append(line_details)
 
 #-------------------------------------------------------------------------------------------------------------------------------------
-    '''
-    x = 0
-    for line in src_dst:
-        y = x + 1
-        while y < len(flipped_ips):
-            if line == flipped_ips[y]:
-                BD_list.append(detailed_lines[x])
-            y += 1
-        x += 1
 
-    with open("Bi_Directional.csv", "w") as f:
-        for line in BD_list:
-            f.write(line)
-    f.close()
-    '''
     x = 0
     for line in src_dst:
         y = x + 1
